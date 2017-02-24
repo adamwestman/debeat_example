@@ -1,3 +1,5 @@
+local event = require("debeat.event")
+
 function init(self)
 	msg.post("#", "hide")
 	self.t = 0
@@ -14,8 +16,10 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("hide") then
 		msg.post("#", "disable")
+		event.trigger(hash("hide_no_drop_room"))
 	elseif message_id == hash("show") then
 		self.t = 1
 		msg.post("#", "enable")
+		event.trigger(hash("show_no_drop_room"))
 	end
 end

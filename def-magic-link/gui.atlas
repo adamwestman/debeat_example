@@ -13,3 +13,6 @@ images {
 images {
   image: "/def-magic-link/images/pop_up_plate.png"
 }
+margin: 0
+extrude_borders: 0
+inner_padding: 0

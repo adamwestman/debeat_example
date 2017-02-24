@@ -1,3 +1,5 @@
+local event = require("debeat.event")
+
 go.property("direction", hash("left"))
 
 function init(self)
@@ -13,8 +15,10 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("lights_on") then
-		msg.post("#light", "enable")	
+		msg.post("#light", "enable")
+		event.trigger(message_id)
 	elseif message_id == hash("lights_off") then
 		msg.post("#light", "disable")
+		event.trigger(message_id)
 	end
 end

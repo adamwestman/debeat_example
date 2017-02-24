@@ -40,4 +40,6 @@ images {
 images {
   image: "/def-magic-link/images/marked.png"
 }
+margin: 0
 extrude_borders: 4
+inner_padding: 0

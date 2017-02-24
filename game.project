@@ -1,5 +1,6 @@
 [project]
 title = Magic Link
+dependencies = https://github.com/adamwestman/debeat/archive/debeat-2.0.0.zip
 
 [bootstrap]
 main_collection = /main/main.collectionc

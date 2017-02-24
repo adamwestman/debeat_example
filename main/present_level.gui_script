@@ -1,3 +1,5 @@
+local event = require("debeat.event")
+
 function init(self)
 	msg.post("#", "hide")
 end
@@ -5,9 +7,11 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("hide") then
 		msg.post("#", "disable")
+		event.trigger(hash("hide_present_level"))
 	elseif message_id == hash("show") then
 		local n = gui.get_node("message")
 		gui.set_text(n, "Level " .. message.level)
 		msg.post("#", "enable")
+		event.trigger(hash("show_present_level"))
 	end
 end

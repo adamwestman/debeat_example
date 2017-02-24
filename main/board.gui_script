@@ -1,3 +1,5 @@
+local event = require("debeat.event")
+
 function init(self)
 	msg.post("#", "show")
 	msg.post("/restart#gui", "hide")
@@ -7,11 +9,14 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("hide") then
 		msg.post("#", "disable")
+		event.trigger(hash("hide_board"))
 	elseif message_id == hash("show") then
 		msg.post("#", "enable")
+		event.trigger(hash("show_board"))
 	elseif message_id == hash("set_drop_counter") then
 		local n = gui.get_node("drop_counter")
 		gui.set_text(n, message.drops .. " x")
+		event.trigger(hash("set_drop_counter"))
 	end
 end
 
@@ -24,8 +29,10 @@ function on_input(self, action_id, action)
 			-- Show the restart dialog box.
 			msg.post("/restart#gui", "show")
 			msg.post("#", "hide")
+			event.trigger(hash("button_restart"))
 		elseif gui.pick_node(drop, action.x, action.y) then
 			msg.post("/board#script", "drop")
+			event.trigger(hash("button_drop"))
 		end
 	end
 end
