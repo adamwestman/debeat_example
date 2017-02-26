@@ -1,3 +1,5 @@
+local event = require("debeat.event")
+
 go.property("timer", 0)
 
 local blocksize = 80		-- Distance between block centers
@@ -236,6 +238,8 @@ local function remove_chain(self)
 		go.delete(c.id)
 	end
 	self.chain = {}
+	
+	event.trigger(hash("block_destroyed"))
 end
 
 --

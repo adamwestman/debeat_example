@@ -1,5 +1,3 @@
-local event = require("debeat.event")
-
 go.property("color", hash("none"))
 
 function init(self)
@@ -28,8 +26,6 @@ function final(self)
 	if self.cover ~= nil then
 		go.delete(self.cover)
 	end
-	
-	event.trigger(hash("destroy_block"))
 end
 
 function on_message(self, message_id, message, sender)
