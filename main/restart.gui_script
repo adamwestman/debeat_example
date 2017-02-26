@@ -4,11 +4,11 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("hide") then
 		msg.post("#", "disable")
 		msg.post(".", "release_input_focus")
-		event.trigger(hash("hide_popup"))
+		event.trigger(hash("hide_restart"))
 	elseif message_id == hash("show") then
 		msg.post("#", "enable")
 		msg.post(".", "acquire_input_focus")
-		event.trigger(hash("show_popup"))
+		event.trigger(hash("show_restart"))
 	end
 end
 

@@ -1,0 +1,36 @@
+enter_game			-- entering game view.
+exit_game			-- leaving game view.
+enter_menu			-- entering menu view.
+exit_menu			-- leaving menu view.
+
+block_selected		-- block was selected.
+block_destroyed		-- block was destroyed.
+lights_on			-- block magic light activated.
+lights_off			-- block magic light disabled.
+
+show_board			-- display board
+hide_board			-- hiding board
+
+hide_level_complete	-- display level complete dialogue.	
+show_level_complete -- hiding level complete dialogue.
+
+show_no_drop_room	-- display no drop room message.
+hide_no_drop_room	-- hiding no drop room message.
+
+show_present_level	-- display present level message.
+hide_present_level	-- hiding present level message.
+
+show_restart		-- display restart level dialogue.
+hide_restart		-- hiding restart level dialogue.
+
+set_drop_counter	-- drop counter changes value.
+
+
+
+button_drop			-- tap on drop button.
+button_restart		-- tap on restart button.
+button_next			-- tap on next button.
+button_start		-- tap on start button.
+button_yes			-- tap on yes button.
+button_no			-- tap on no button.
+button_quit			-- tap on quit button.

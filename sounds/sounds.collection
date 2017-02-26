@@ -83,10 +83,10 @@ embedded_instances {
 embedded_instances {
   id: "available_queues"
   children: "block_destroyed"
-  children: "button_click"
-  children: "game_win"
-  children: "link_select"
-  children: "popup_show"
+  children: "button_tap"
+  children: "level_complete"
+  children: "block_selected"
+  children: "show_popup"
   data: ""
   position {
     x: 0.0
@@ -106,7 +106,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "button_click"
+  id: "block_destroyed"
   data: "components {\n"
   "  id: \"script\"\n"
   "  component: \"/debeat/queues/random.script\"\n"
@@ -120,6 +120,76 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sounds\"\n"
+  "    value: \"1.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"can_repeat_every\"\n"
+  "    value: \"1.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"sound1\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/sounds/assets/clap.wav\\\"\\n"
+  "looping: 0\\n"
+  "group: \\\"master\\\"\\n"
+  "gain: 1.0\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "button_tap"
+  data: "components {\n"
+  "  id: \"script\"\n"
+  "  component: \"/debeat/queues/random.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sounds\"\n"
+  "    value: \"2.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -174,14 +244,6 @@ embedded_instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "script"
-    properties {
-      id: "sounds"
-      value: "2.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -189,7 +251,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "game_win"
+  id: "level_complete"
   data: "components {\n"
   "  id: \"script\"\n"
   "  component: \"/debeat/queues/sequence.script\"\n"
@@ -203,6 +265,11 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sounds\"\n"
+  "    value: \"1.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -237,14 +304,6 @@ embedded_instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "script"
-    properties {
-      id: "sounds"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -252,7 +311,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "link_select"
+  id: "block_selected"
   data: "components {\n"
   "  id: \"script\"\n"
   "  component: \"/debeat/queues/random.script\"\n"
@@ -267,11 +326,26 @@ embedded_instances {
   "    z: 0.0\n"
   "    w: 1.0\n"
   "  }\n"
+  "  properties {\n"
+  "    id: \"sounds\"\n"
+  "    value: \"1.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"gating\"\n"
+  "    value: \"0.01\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"can_repeat_every\"\n"
+  "    value: \"1.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
+  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sound1\"\n"
   "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/sounds/assets/clap.wav\\\"\\n"
+  "  data: \"sound: \\\"/sounds/assets/spam.ogg\\\"\\n"
   "looping: 0\\n"
   "group: \\\"master\\\"\\n"
   "gain: 1.0\\n"
@@ -300,19 +374,6 @@ embedded_instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "script"
-    properties {
-      id: "sounds"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "can_repeat_every"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -320,7 +381,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "popup_show"
+  id: "show_popup"
   data: "components {\n"
   "  id: \"script\"\n"
   "  component: \"/debeat/queues/sequence.script\"\n"
@@ -334,6 +395,11 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sounds\"\n"
+  "    value: \"1.0\"\n"
+  "    type: PROPERTY_TYPE_NUMBER\n"
   "  }\n"
   "}\n"
   "embedded_components {\n"
@@ -368,14 +434,6 @@ embedded_instances {
     z: 0.0
     w: 1.0
   }
-  component_properties {
-    id: "script"
-    properties {
-      id: "sounds"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -388,6 +446,296 @@ embedded_instances {
   children: "gui_handlers"
   children: "music_handlers"
   data: ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "game_handlers"
+  data: "components {\n"
+  "  id: \"block_destroyed\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"block_destroyed\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/block_destroyed\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"block_selected\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"block_selected\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/block_selected\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "gui_handlers"
+  data: "components {\n"
+  "  id: \"button_drop\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"button_drop\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/button_tap\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"button_no\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"button_no\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/button_tap\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"button_quit\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"button_quit\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/button_tap\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"button_restart\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"button_restart\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/button_tap\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"button_start\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"button_start\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/button_tap\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"button_yes\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"button_yes\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/button_tap\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"show_level_complete\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"show_level_complete\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/level_complete\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"show_restart\"\n"
+  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"show_restart\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"queue_name\"\n"
+  "    value: \"/sounds/show_popup\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "}\n"
+  ""
   position {
     x: 0.0
     y: 0.0
@@ -421,6 +769,16 @@ embedded_instances {
   "    z: 0.0\n"
   "    w: 1.0\n"
   "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"enter_game\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sound\"\n"
+  "    value: \"/sounds/available_music#ingame\"\n"
+  "    type: PROPERTY_TYPE_URL\n"
+  "  }\n"
   "}\n"
   "components {\n"
   "  id: \"ingame_music_stop\"\n"
@@ -435,6 +793,16 @@ embedded_instances {
   "    y: 0.0\n"
   "    z: 0.0\n"
   "    w: 1.0\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"exit_game\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sound\"\n"
+  "    value: \"/sounds/available_music#ingame\"\n"
+  "    type: PROPERTY_TYPE_URL\n"
   "  }\n"
   "}\n"
   "components {\n"
@@ -451,6 +819,16 @@ embedded_instances {
   "    z: 0.0\n"
   "    w: 1.0\n"
   "  }\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"enter_menu\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
+  "  properties {\n"
+  "    id: \"sound\"\n"
+  "    value: \"/sounds/available_music#menu\"\n"
+  "    type: PROPERTY_TYPE_URL\n"
+  "  }\n"
   "}\n"
   "components {\n"
   "  id: \"menu_music_stop\"\n"
@@ -466,207 +844,15 @@ embedded_instances {
   "    z: 0.0\n"
   "    w: 1.0\n"
   "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  component_properties {
-    id: "ingame_music_start"
-    properties {
-      id: "event_name"
-      value: "enter_game"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "sound"
-      value: "/sounds/available_music#ingame"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "gain"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "attack"
-      value: "0.3"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
-  component_properties {
-    id: "ingame_music_stop"
-    properties {
-      id: "event_name"
-      value: "exit_game"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "sound"
-      value: "/available_music#ingame"
-      type: PROPERTY_TYPE_URL
-    }
-  }
-  component_properties {
-    id: "menu_music_start"
-    properties {
-      id: "event_name"
-      value: "enter_menu"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "sound"
-      value: "/available_music#menu"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "gain"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "attack"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
-  component_properties {
-    id: "menu_music_stop"
-    properties {
-      id: "event_name"
-      value: "enter_game"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "sound"
-      value: "/available_music#menu"
-      type: PROPERTY_TYPE_URL
-    }
-    properties {
-      id: "decay"
-      value: "0.3"
-      type: PROPERTY_TYPE_NUMBER
-    }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "gui_handlers"
-  data: "components {\n"
-  "  id: \"button_start\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
+  "  properties {\n"
+  "    id: \"event_name\"\n"
+  "    value: \"enter_game\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
   "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"button_no\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"button_yes\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"button_quit\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"button_restart\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"button_drop\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"show_level_complete\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
+  "  properties {\n"
+  "    id: \"sound\"\n"
+  "    value: \"/sounds/available_music#menu\"\n"
+  "    type: PROPERTY_TYPE_URL\n"
   "  }\n"
   "}\n"
   ""
@@ -680,213 +866,6 @@ embedded_instances {
     y: 0.0
     z: 0.0
     w: 1.0
-  }
-  component_properties {
-    id: "button_start"
-    properties {
-      id: "event_name"
-      value: "button_start"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/button_click"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "button_no"
-    properties {
-      id: "event_name"
-      value: "button_no"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/button_click"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "button_yes"
-    properties {
-      id: "event_name"
-      value: "button_yes"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/button_click"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "button_quit"
-    properties {
-      id: "event_name"
-      value: "button_quit"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/button_click"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "button_restart"
-    properties {
-      id: "event_name"
-      value: "button_restart"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/button_click"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "button_drop"
-    properties {
-      id: "event_name"
-      value: "button_drop"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/button_click"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  component_properties {
-    id: "show_level_complete"
-    properties {
-      id: "event_name"
-      value: "show_level_complete"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/game_win"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "game_handlers"
-  data: "components {\n"
-  "  id: \"play_block_destroyed\"\n"
-  "  component: \"/debeat/event_handlers/play_queue.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  component_properties {
-    id: "play_block_destroyed"
-    properties {
-      id: "event_name"
-      value: "destroy_block"
-      type: PROPERTY_TYPE_HASH
-    }
-    properties {
-      id: "queue_name"
-      value: "/sounds/block_destroyed"
-      type: PROPERTY_TYPE_HASH
-    }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
-  id: "block_destroyed"
-  data: "components {\n"
-  "  id: \"script\"\n"
-  "  component: \"/debeat/queues/random.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sound1\"\n"
-  "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/sounds/assets/clap.wav\\\"\\n"
-  "looping: 0\\n"
-  "group: \\\"master\\\"\\n"
-  "gain: 1.0\\n"
-  "\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  component_properties {
-    id: "script"
-    properties {
-      id: "sounds"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
-    properties {
-      id: "can_repeat_every"
-      value: "1.0"
-      type: PROPERTY_TYPE_NUMBER
-    }
   }
   scale3 {
     x: 1.0
