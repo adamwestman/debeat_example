@@ -24,7 +24,7 @@ default_texture_mag_filter = linear
 shared_state = 1
 
 [ios]
-launch_image_640x1136 =
+launch_image_640x1136 = 
 
 [sprite]
 max_count = 512

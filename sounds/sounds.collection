@@ -83,9 +83,9 @@ embedded_instances {
 embedded_instances {
   id: "available_queues"
   children: "block_destroyed"
+  children: "block_selected"
   children: "button_tap"
   children: "level_complete"
-  children: "block_selected"
   children: "show_popup"
   data: ""
   position {

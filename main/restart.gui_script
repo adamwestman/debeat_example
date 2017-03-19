@@ -1,14 +1,34 @@
 local event = require("debeat.event")
 
+local function slide(from, to, callback)
+	local node  = gui.get_node("background")
+	if from then
+		local pos = gui.get_position(node)
+		pos.x = from
+		gui.set_position(node, pos)
+	end
+	gui.animate(node, "position.x", to, gui.EASING_INQUINT, 0.2, 0, callback, gui.PLAYBACK_ONCE_FORWARD)
+end
+
+function init(self)
+	self.in_x = gui.get_position(gui.get_node("background")).x
+	self.out_x = self.in_x - gui.get_width()
+	msg.post("#", "disable")
+end
+
 function on_message(self, message_id, message, sender)
 	if message_id == hash("hide") then
-		msg.post("#", "disable")
-		msg.post(".", "release_input_focus")
 		event.trigger(hash("hide_restart"))
+		slide(nil, self.out_x, function()
+			msg.post("#", "disable")
+			msg.post(".", "release_input_focus")
+		end)
+
 	elseif message_id == hash("show") then
 		msg.post("#", "enable")
 		msg.post(".", "acquire_input_focus")
 		event.trigger(hash("show_restart"))
+		slide(self.out_x, self.in_x)
 	end
 end
 
@@ -17,7 +37,7 @@ function on_input(self, action_id, action)
 		local yes = gui.get_node("yes")
 		local no = gui.get_node("no")
 		local quit = gui.get_node("quit")
-		
+
 		if gui.pick_node(no, action.x, action.y) then
 			msg.post("#", "hide")
 			msg.post("/board#gui", "show")
